@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>First WEEK</title>
+		<link rel="stylesheet" 
+			type="text/css"
+			href="bootstrap.css"/>
+		<link rel="stlesheet"
+			  type="text/css"
+			  href="styles.css">
+		<script src="jquery-3.6.0.min.js"></script>	  
+	</head>
+	<body class="back-ed">
+		<h1 align="center" style="border:2px solid orange;"color="white" id="title" onclick="gogo();">ANIMEFLIX</h1>
+		<center><a href="https://gizmostory.com/wp-content/uploads/2020/12/anime.jpeg"><img class="img-rad"src="https://gizmostory.com/wp-content/uploads/2020/12/anime.jpeg" width="50%" />
+				</a>
+		</center>
+		<hr>
+		<p><span class="indent">I </span>love anime. They are the best time pass one could ask for. Here are some recommendations to watch. Click on the name to watch right now! </p>
+		<div class="container" style="color:white;">
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-default js-go-day "style="background-color:#008CBA;">DAY NODE</button>
+				<button class="btn btn-default js-go-night" style="background-color:#008CBA;">NIGHT NODE</button>
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-md-4 thinbord"><center>Steines Gate<br>
+					<img id="img1"class="crop-img" src="https://m.media-amazon.com/images/M/MV5BMjUxMzE4ZDctODNjMS00MzIwLThjNDktODkwYjc5YWU0MDc0XkEyXkFqcGdeQXVyNjc3OTE4Nzk@._V1_UY1200_CR85,0,630,1200_AL_.jpg"/></center>
+				</div>
+				<div class="col-md-4 thinbord"><center>Naruto<br>
+					<img id="img2"class= "crop-img"src="https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg"/></center>
+				</div>
+				<div class="col-md-4 thinbord"><center><a href="https://gogoanime.pe/category/dragon-ball-super" styles="color:white;">Dragon Ball super</a><br>
+					<img id="img3"class= "crop-img"src="https://m.media-amazon.com/images/M/MV5BMGMyOThiMGUtYmFmZi00YWM0LWJiM2QtZGMwM2Q2ODE4MzhhXkEyXkFqcGdeQXVyMjc2Nzg5OTQ@._V1_.jpg"/></center>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-1">
+				<button id="backward">&lt;</button>
+			</div>
+		<div class="col-md-10"><center><h3><center><--PREVIEW--></center><br><img id="preview" class="large-img" src="https://m.media-amazon.com/images/M/MV5BMjUxMzE4ZDctODNjMS00MzIwLThjNDktODkwYjc5YWU0MDc0XkEyXkFqcGdeQXVyNjc3OTE4Nzk@._V1_UY1200_CR85,0,630,1200_AL_.jpg">
+		</center></div>			<!--  this is how you comement in html -->
+			<div class="col-md-1">
+				<button id="forward">&gt;</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function gogo()
+			{
+				<!--alert('Do you want to go to this websie?');-->
+				$("#title").html(href="https://www1.gogoanime.ai/");
+					$("#title").click(function()
+					{
+						$("#title").html("ANIMEFLIX");
+						$("#title").off("click");
+					});
+			};
+		$(".crop-img").click(function()
+			{
+				$("#preview").attr('src',
+				$(this).attr('src'));
+			});
+		var paused = false;	
+		var counter = 1;
+		// virtually click on the current
+		// image to load it into the big image
+		$("#img"+counter).click();
+
+		// when you click on the backwards
+		// button select the previous image
+		$("#backward").click(function (){
+			// go back one in the counter
+			counter = counter - 1;
+			// if we are below 1 (the first
+			// image) loop round to 4 (the
+			// last image)
+			if(counter < 1){
+				counter = 4;
+			}
+			// virtually click on the current
+			// image to load it into the big image
+			$("#img"+counter).click();
+		});
+
+		// when you click on the backwards
+		// button select the next image
+		$("#forward").click(function (){
+			// go forward one in the counter
+			counter = counter + 1;
+			// if we are above 4 (the last
+			// image) loop round to 1 (the
+			// first image)
+			if(counter > 4){
+				counter = 1;
+			}
+			// virtually click on the current
+			// image to load it into the big image
+			$("#img"+counter).click();
+		});
+
+		// when you click the big image 
+		// toggle pausing. Set paused to 
+		// not paused, i.e. if it is paused
+		// set it to not paused, if it is 
+		// not paused set it to paused
+		$("#large-img").click(function (){
+			paused = !paused;
+		});
+
+		// set interval makes it move 
+		// forward every 3 second
+		setInterval(function (){
+			// first check if it is paused
+			if(!paused){
+				// virtual click the forward
+				// button
+				$("#forward").click();
+			};
+		}, 3000);
+
+		$('.js-go-night').click(function(){
+			alert('Go to night mode - replace me with the CSS changing code!');
+			$('body').addClass('night');
+			$('div').addClass('night');
+			$('li').addClass('night');
+
+		});
+		$('.js-go-day').click(function(){
+			alert('Go to day mode - replace me with the CSS changing code!');
+			$('body').removeClass('night');
+			$('div').removeClass('night');
+			$('li').removeClass('night');
+		});
+	</script>
+</html>
