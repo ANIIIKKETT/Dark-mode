@@ -1,0 +1,14 @@
+img{
+	border-radius: 50%;
+}
+img:hover{
+  opacity : 1;
+  
+}
+body{
+	background : #283747;
+}
+.indent{
+	margin-left: 100px;
+	}
+.button3 {background-color: #008CBA;} 
